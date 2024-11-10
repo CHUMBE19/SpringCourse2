@@ -1,0 +1,51 @@
+@SpringBootApplication --- clase principal para ejecutar la aplicación
+@RestController --- definir una clase como un controlador que manejara entidades
+@PathVariable --- indica que se pasará una variable en la url
+@GetMapping --- solicitud para obtener recursos
+@PostMapping --- solicitud para crear recursos
+@RequestBody --- significa que llegan parámetros en el cuerpo de la solicitud
+@PutMapping --- solicitud para actualizar datos
+@DeleteMapping --- solicitud es para eliminar un registro
+@PatchMapping --- solicitud para modificación parcial de recursos
+@RequestMapping --- notación para la unificación de rutas, es la ruta base de los endpoints de la clase
+@RequestParams --- para recibir parámetros luego del ? de la solicitud, util para endpoint dinámicos
+@Service --- indica que la clase es un servicio
+@Autowired --- sirve para la inyección de dependencias, spring genera la instancia de la clase cuando es necesario
+@Primary --- indica prioridad para la inyección de dependencias en caso de haber más de una implementación de la misma interfaz. Va en la clase que lo implementa (servicio)
+@Qualifier --- indica específicamente el nombre del servicio a inyectar. Va en el controlador
+@Override --- indica que se está sobreescribiendo un método abstracto de una interfaz
+
+String.format: permite insertar variables en una cadena de texto (%s), para enteros(%d). formatear números, (%.2f) a dos decimales. completar números con ceros a la izquierda (%03d)
+ResponseEntity: Clase que devuelve encabezado, cuerpo y estado de una solicitud http.
+                Conveniente para controlar de forma detallada las respuestas http
+
+
+run application: ./mvnw spring-boot:run
+
+
+
+
+//DOCKER
+docker pull imageName --- descargar imagen de dockerhub
+docker pull imageName:16 --- descargar una version específica de una imagen
+docker images --- lista todas las imágenes descargadas
+docker image rm imageName --- eliminar imagen
+docker create imageName --- crear un contenedor en base a una imagen, devuelve un id de contenedor
+docker create --name customImageName imageName --- crea un contenedor con un nombre personalizado en base a una imagen
+docker start containerId --- correr el contenedor indicando el id, devuelve el id del contenedor
+docker start containerName --- correr el contenedor indicando el nombre, devuelve containerName
+docker ps --- verificar contenedores en ejecución
+docker stop containerId --- detener la ejecución de un contenedor, devuelve el id del contenedor
+docker ps -a --- list todos los contenedores del sistema
+docker logs containerId or containerName --- muestra los logs del contenedor hasta ese momento
+docker logs --follow containerId or containerName --- muestra los logs en tiempo real
+docker run imageName --- verifica si existe la imagen sino la descarga, crea un contenedor, lo ejecuta y muestra logs en tiempo real
+docker run -d imageName --- hace todo lo anterior sin mostrar logs, devuelve el containerId
+docker run --name containerName -p27017:27017 -d imageName --- descarga la imagen no la hay, crea un contenedor con el nombre indicado, mapea el puerto de la maq local al puerto 27017 del contenedor, no muestra logs
+
+
+
+
+
+
+
