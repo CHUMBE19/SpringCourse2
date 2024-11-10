@@ -5,10 +5,7 @@ import com.learningMicroservices2.springBootCourse2.entities.Product;
 import com.learningMicroservices2.springBootCourse2.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -32,6 +29,21 @@ public class EmployeeController {
     @GetMapping("")
     public ResponseEntity<?> getAllEmployees(){
         return ResponseEntity.ok(employeeService.getEmployees());
+    }
+
+    @PostMapping("")
+    public  ResponseEntity<?> createEmployee(@RequestBody Employee employee){
+        return ResponseEntity.ok(employeeService.saveEmployee(employee));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateEmployee(@PathVariable Long id, @RequestBody Employee employee){
+        return ResponseEntity.ok(employeeService.updateEmployee(id, employee));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteEmployee(@PathVariable Long id){
+        return ResponseEntity.ok(employeeService.deleteEmployee(id));
     }
 
 }
