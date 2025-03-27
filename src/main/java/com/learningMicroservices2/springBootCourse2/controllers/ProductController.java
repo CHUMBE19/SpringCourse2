@@ -1,7 +1,7 @@
 package com.learningMicroservices2.springBootCourse2.controllers;
 
 import com.learningMicroservices2.springBootCourse2.entities.Product;
-import com.learningMicroservices2.springBootCourse2.services.ProductService;
+import com.learningMicroservices2.springBootCourse2.services.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
@@ -19,11 +19,11 @@ public class ProductController {
 
     @Autowired  //Dependency injection
     @Qualifier("staticResourceService")      //To distinguish which interface implementation is to be injected
-    private ProductService productService;
+    private IProductService IProductService;
 
     @GetMapping("")
     public ResponseEntity<?> getAllProducts(){
-        List<Product> products = productService.getProducts();
+        List<Product> products = IProductService.getProducts();
         return ResponseEntity.ok(products);
     }
 

@@ -34,7 +34,7 @@ public class CustomerController {
                 return c;
             }
         }
-        return null;
+        return null; //only to example | it's a bad practice
     }
 
     //POST REQUESTS
@@ -77,20 +77,12 @@ public class CustomerController {
     public Customer updateCustomerUsername(@RequestBody Customer customer){
         for(Customer c : customers){
             if(c.getId() == customer.getId()){
-                if (customer.getName() != null){
-                    c.setName(customer.getName());
-                }
-                if (customer.getUsername() != null){
-                    c.setUsername(customer.getUsername());
-                }
-                if (customer.getPassword() != null){
-                    c.setPassword(customer.getPassword());
-                }
-
+                if (customer.getName() != null) { c.setName(customer.getName()); }
+                if (customer.getUsername() != null) { c.setUsername(customer.getUsername()); }
+                if (customer.getPassword() != null) { c.setPassword(customer.getPassword()); }
                 return c;
             }
         }
-
         return null;
     }
 

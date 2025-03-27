@@ -82,7 +82,7 @@ public class StudentController {
     public ResponseEntity<?> partialStudentUpdate(@RequestBody Student student) {
         for (Student s : Students){
             if (s.getId() == student.getId()){
-                if (student.getAge() != null){
+                if (student.getAge() != null){ //student.getAge() != null ? s.setAge(student.getAge());
                     s.setAge(student.getAge());
                 }
                 if (student.getAverage() != null){
@@ -112,9 +112,7 @@ public class StudentController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Student> deleteStudent(@PathVariable int id) {
         boolean removed = Students.removeIf(s -> s.getId() == id);
-        if (removed) {
-            return ResponseEntity.noContent().build();  // Retorna 204 si se eliminó el usuario
-        }
+        if (removed) return ResponseEntity.noContent().build();  // Retorna 204 si se eliminó el usuario
         return ResponseEntity.notFound().build();  // Retorna 404 si no se encontró el usuario
     }
 

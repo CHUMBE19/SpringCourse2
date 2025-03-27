@@ -14,7 +14,7 @@ public class HelloWorldController {
 
     @GetMapping({"/hello2", "/hw", "/h2"})
     public String HelloWorld2() {
-        return "Hello World from Spring Boot whit several parameters (/hello, /hw, /h2)";
+        return "Hello World from Spring Boot whit many parameters (/hello, /hw, /h2)";
     }
 
     @GetMapping("/greeting/{name}") //Dynamic urls
@@ -33,7 +33,7 @@ public class HelloWorldController {
     public Boolean isPalindrome(String word){
         int length = word.length();
         for (int i = 0; i < length/2; i++){
-            if(word.charAt(i) != (word.charAt(length - i - 1 ))){
+            if(word.charAt(i) != (word.charAt(length - 1 - i))){
                 return false;
             }
         }

@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Service("staticResourceService")
-public class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements IProductService {
 
     private List<Product> products = new ArrayList<>(Arrays.asList(
         new Product(1,"Computer", new BigDecimal("1100.00"), 20),

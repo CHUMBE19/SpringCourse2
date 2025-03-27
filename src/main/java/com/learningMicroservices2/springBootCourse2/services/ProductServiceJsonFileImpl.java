@@ -11,7 +11,7 @@ import java.util.List;
 
 @Primary
 @Service("jsonResourceService")
-public class ProductServiceJsonFileImpl implements ProductService{
+public class ProductServiceJsonFileImpl implements IProductService {
 
 
     @Override
